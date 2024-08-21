@@ -41,10 +41,15 @@ bool RaceParams::load(const fs::path &directory, const fs::path &filename) {
 
   bool loaded{true};
   loaded &= lpinit.load(lbfgsInit) && lpinit.valid();
+  // std::cout << loaded << std::endl;
   loaded &= lprefine.load(lbfgsRefine) && lprefine.valid();
+  // std::cout << loaded << std::endl;
   loaded &= tpinit.load(planningInit) && tpinit.valid();
+  // std::cout << loaded << std::endl;
   loaded &= tprefine.load(planningRefine) && tprefine.valid();
+  // std::cout << loaded << std::endl;
   loaded &= qp.load(quadrotor) && qp.valid();
+  // std::cout << loaded << std::endl;
   if (!loaded) {
     // logger_.error("Error occurs when loading configuration files!");
     std::cout << "Error occurs when loading configuration files!\n";
