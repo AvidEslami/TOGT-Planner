@@ -43,6 +43,8 @@ bool QuadParams::load(const Yaml& yaml) {
     // T_mb.col(2) << -1.66666667, -1.66666667, 1.66666667, 1.66666667;
     // T_mb.col(3) << 25, -25, 25, -25;
     T_mb = T_bm.inverse();
+    std::cout << T_bm << std::endl; //TODO: remove this
+    std::cout << T_mb << std::endl; //TODO: remove this
   } else if (yaml["tbm_fr"].isDefined() && yaml["tbm_bl"].isDefined() &&
              yaml["tbm_br"].isDefined() && yaml["tbm_fl"].isDefined() &&
              yaml["torCoeff"].isDefined()) {
@@ -105,10 +107,15 @@ bool QuadParams::load(const Yaml& yaml) {
 bool QuadParams::valid() const {
   bool check = true;
   check &= mass > 0.0;
+  std::cout << check << std::endl;
   check &= mass < 100.0;
+  std::cout << check << std::endl;
   check &= inertia.allFinite();
+  std::cout << check << std::endl;
   check &= T_mb.allFinite();
+  std::cout << check << std::endl;
   check &= T_bm.allFinite();
+  std::cout << check << std::endl;
 
   return check;
 }
