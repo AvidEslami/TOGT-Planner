@@ -4,7 +4,7 @@ maxVelNorm:         60.0
 maxOmgXY:           10.0
 maxOmgZ:            10.0
 maxTiltedAngle:     6.28
-maxThr:             5.0
+maxThr:             11.2
 minThr:             0.25
 
 weightTime:         1.0
